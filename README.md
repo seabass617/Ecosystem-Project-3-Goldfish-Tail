@@ -1,9 +1,13 @@
-# Ecosystem Project 2: Goldfish Food
+# Ecosystem Project 3: Goldfish Tail
 
-Second project as I make my way through "The Nature of Code". This project adds to my goldfish project by adding an attractive force which in the case will be food.
+Third project as I make my way through "The Nature of Code". This project adds to my goldfish project by including oscillations in the form of a swimming tail.
 
-Although it appears very similar, this is different from the previous exercise in that we have an attractor object, in this case being the food, which applies a force to the fish. 
+The speed of the tail movement is proportional to the velocity of the fish, the faster it's going to faster it will move it's tail.
 
-As the size of the food increases, the attraction force becomes greater as the fish can't resist the large meal! 
+A few notes on how this could be improved
+- Axis of tail oscillation could be moved to where it connects to the fish
+- A coasting ability could be added (fish intelligence). The fish would be able to
+gauge distance and stop moving it's tail so hard as to approaches the food. Almost as if it knows that it's momentum will carry it to the target. (Math!)
+
 
 
