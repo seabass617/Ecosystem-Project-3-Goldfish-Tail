@@ -9,6 +9,9 @@ class Fish {
     this.angle = this.velocity.heading();
     this.fishRadius = 10;
     this.tail = new Tail(this.fishRadius);
+
+    this.xoff = 0;
+    this.yoff = 1000;
 	}
 
   //===================================================================================
@@ -60,6 +63,19 @@ class Fish {
     this.acceleration.add(f);
   }
 
+
+
+
+  //===================================================================================
+  // Meander Method: Fish will randomly move around the screen 
+  //===================================================================================
+  meander(){
+    	this.acceleration.x = map(noise(this.xoff),0,1,-3,3);
+      this.acceleration.y = map(noise(this.yoff),0,1,-3,3);
+      // Take the next step through our perlin field
+      this.xoff += 0.01;
+			this.yoff += 0.01;
+  }
   //===================================================================================
   // CheckEdges Method: Allows for the fish to wrap around edges of the viewport
   //===================================================================================

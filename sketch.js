@@ -3,7 +3,7 @@
 //====================================================================================
 
 //Declare global variables
-let goldFish;
+let fishes = new Array(100);
 let food;
 let clientWidth, clientHeight;
 let foodSlider; 
@@ -40,7 +40,11 @@ function setup() {
 	background(0);
 
 	// Creating an instance of the Fish object
-	goldFish = new Fish();
+	//goldFish = new Fish();
+
+	for (let i = 0; i < fishes.length; i++) {
+		fishes[i] = new Fish();
+	}
 
 }
 
@@ -51,18 +55,22 @@ function draw() {
 	//Redraw Background Color (Necessary?)
 	background(0);
 
-	// If there is food on the screen, apply attractive force and display food
-	if (food) {
-		let f = food.calculateAttraction(goldFish); 
-		goldFish.applyForce(f); 
-		food.display(); 
-	}
+	for (let i = 0; i < fishes.length; i++){ 
+		// If there is food on the screen, apply attractive force and display food
+		if (food) {
+			let f = food.calculateAttraction(fishes[i]); 
+			fishes[i].applyForce(f); 
+			food.display(); 
+		} else {
+			fishes[i].meander();
+		}
 
-	// Update the properties of the fish (acceleration, velocity, location) etc
-	// And display the fish
-	goldFish.update(); 
-	goldFish.checkEdges();
-	goldFish.display();
+		// Update the properties of the fish (acceleration, velocity, location) etc
+		// And display the fish
+		fishes[i].update(); 
+		fishes[i].checkEdges();
+		fishes[i].display();
+	}
 
 	// Text for slider	
 	fill(255);
